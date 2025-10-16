@@ -21,3 +21,16 @@ export async function getTimelineWeather(address) {
     throw error;
   }
 }
+
+export async function getTimelineWeatherLocation(latitude, longitude) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/${latitude},${longitude}?key=${API_KEY}&lang=zh`
+    );
+    console.log('response=',response);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching timeline weather data:", error);
+    throw error;
+  }
+}

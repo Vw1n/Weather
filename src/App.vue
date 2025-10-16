@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref, watch } from 'vue'
-import { getTimelineWeather } from './api/TimelineWeather.js'
-const address = ref('Shenzhen,China');
+import { getTimelineWeather, getTimelineWeatherLocation } from './api/TimelineWeather.js'
+const address = ref('');
 watch(address, (newAddress) => {
   console.log(newAddress);
 });
@@ -16,12 +16,28 @@ const query = async () => {
   localStorage.setItem('lastweatherDay', JSON.stringify(weatherDay.value));
 };
 
+const getLocation = async () => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(queryPosition);
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+const queryPosition = async function (position) {
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+  data.value = await getTimelineWeatherLocation(lat, long);
+  weatherDay.value = data.value.days ? data.value.days : null;
+}
+
 onMounted(() => {
   const lastData = localStorage.getItem('lastweatherDay');
   if (lastData) {
+    console.log("使用缓存数据");
     weatherDay.value = JSON.parse(lastData);
   } else {
-    query();
+    console.log("没有缓存数据，获取当前位置天气");
+    getLocation();
   }
 })
 </script>
