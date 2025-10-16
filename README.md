@@ -6,6 +6,9 @@
 
 This is a modern weather application developed with Vue 3 and Vite, providing real-time weather query and multi-day weather forecast features. The application uses responsive design to provide a good user experience on different devices.
 
+项目参考: [https://roadmap.sh/projects/weather-app](https://roadmap.sh/projects/weather-app)
+Project Reference: [https://roadmap.sh/projects/weather-app](https://roadmap.sh/projects/weather-app)
+
 ## 功能特点 / Features
 
 - 🔍 通过地址搜索天气信息
