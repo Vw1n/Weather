@@ -2,14 +2,14 @@
 <html lang="">
   <head>
     <meta charset="UTF-8">
-    <!-- 使用相对路径，这样可以正确匹配base路径 -->
-    <link rel="icon" href="./weather.ico">
+    <!-- 对于public目录中的文件，应该使用从base路径开始的绝对路径 -->
+    <link rel="icon" href="/Weather/weather.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
   </head>
   <body>
     <div id="app"></div>
-    <!-- 使用相对路径，这样可以正确匹配base路径 -->
-    <script type="module" src="./src/main.js"></script>
+    <!-- 保持相对路径，Vite会正确处理模块导入 -->
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
