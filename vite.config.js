@@ -10,7 +10,9 @@ export default defineConfig({
     vue(),
     vueDevTools(),
   ],
-  base: '/Weather/',
+  // 对于GitHub Pages部署，base应该设置为仓库名称
+  // 这样无论部署到哪里，资源路径都会正确
+  base: process.env.NODE_ENV === 'production' ? '/Weather/' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

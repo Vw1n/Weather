@@ -2,12 +2,14 @@
 <html lang="">
   <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="/weather.ico">
+    <!-- 使用相对路径，这样可以正确匹配base路径 -->
+    <link rel="icon" href="./weather.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <!-- 使用相对路径，这样可以正确匹配base路径 -->
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>
